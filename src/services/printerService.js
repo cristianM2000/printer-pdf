@@ -5,11 +5,12 @@ import fs from "fs";
 
 const OS_WIN32 = "win32";
 
-async function printPDF(printerName, pdfBuffer) {
+async function printPDF(printerName, pdfBuffer, options) {
   const osPlatform = platform();
 
   const optionsPrinter = {
     printer: printerName,
+    ...options,
   };
 
   if (osPlatform !== OS_WIN32) {
