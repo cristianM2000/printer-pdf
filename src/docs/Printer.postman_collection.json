@@ -1,0 +1,37 @@
+{
+	"info": {
+		"_postman_id": "73ec4cc8-8a91-4618-baec-786f92f24ee2",
+		"name": "Printer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27125821"
+	},
+	"item": [
+		{
+			"name": "localhost:3000/print",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"printerName\": \"Microsoft Print to PDF\",\r\n    \"pdfUrl\": \"https://eqpro.es/wp-content/uploads/2018/11/Ejemplo.pdf\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/print",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"print"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
