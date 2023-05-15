@@ -26,7 +26,7 @@ printController.post("/print", async (req, res, next) => {
       throw error;
     }
     if(!pdfFile && !pdfUrl){
-      const error = new Error("none PDF file or URI was provided");
+      const error = new Error("None PDF file or URI was provided");
       error.code = "ERR_BAD_REQUEST";
       throw error;
     }
@@ -53,6 +53,16 @@ printController.post("/print", async (req, res, next) => {
     await printerService.printPDF(printerName, pdfBuffer, options);
 
     res.send("Impresión enviada correctamente.");
+  } catch (error) {
+    console.error(error)
+    next(error);
+  }
+});
+
+printController.get("/printers", async (req, res, next) => {
+  try {
+    const result = await printerService.getPrinters();
+    res.send([...result]);
   } catch (error) {
     console.error(error)
     next(error);

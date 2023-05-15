@@ -22,4 +22,13 @@ async function printPDF(printerName, pdfBuffer, options) {
   }
 }
 
-export default { printPDF };
+async function getPrinters() {
+  const osPlatform = platform();
+  if (osPlatform !== OS_WIN32) {
+    return await ptpUnix.getPrinters();
+  } else {
+    return await ptpWin.getPrinters();
+  }
+}
+
+export default { printPDF, getPrinters };

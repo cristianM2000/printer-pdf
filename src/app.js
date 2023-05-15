@@ -17,9 +17,9 @@ app.use("/", printController);
 
 app.use((err, req, res, next) => {
   if (err.code === ERR_BAD_REQUEST) {
-    res.status(400).send("Error: la URL del PDF es inválida.");
+    res.status(400).send(`${err}`);
   } else if (err.code === ERR_NOT_FOUND) {
-    res.status(404).send("Error: no se ha podido encontrar la impresora.");
+    res.status(404).send("Error: None printer was found.");
   } else {
     res.status(500).send("Error interno del servidor.");
   }
